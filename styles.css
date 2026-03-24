@@ -1,0 +1,35 @@
+:root{
+  --bg:#0f1724;
+  --card:#0f1724;
+  --muted:#94a3b8;
+  --accent:#7c3aed;
+  --surface:#0b1220;
+  --text:#e6eef8;
+}
+*{box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,"Noto Sans",sans-serif;line-height:1.5;color:var(--text);background:linear-gradient(180deg,#071024 0%,#081328 100%);}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+.site-header{border-bottom:1px solid rgba(255,255,255,0.04);backdrop-filter:blur(6px)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand-link{text-decoration:none;color:inherit}
+.brand-name{font-weight:600;font-size:1.05rem}
+.brand-sub{font-size:0.85rem;color:var(--muted)}
+.top-nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:500}
+.hero{padding:48px 0}
+.hero-inner{display:flex;gap:32px;align-items:center}
+.hero-text{flex:1}
+.hero-text h1{font-size:clamp(1.6rem,3.2vw,2.4rem);margin-bottom:12px}
+.hero-text p{color:var(--muted);max-width:60ch}
+.hero-aside{width:220px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:18px;border-radius:12px;text-align:center}
+.avatar{width:120px;height:120px;object-fit:cover;border-radius:999px;border:3px solid rgba(255,255,255,0.06)}
+.hero-name{margin-top:12px;font-weight:600}
+.hero-role{color:var(--muted);font-size:0.95rem;margin-bottom:8px}
+.btn{display:inline-block;padding:10px 16px;border-radius:8px;background:var(--accent);color:white;text-decoration:none;font-weight:600}
+.btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
+.main{padding:28px 0}
+.section{margin-bottom:28px}
+.section h2{font-size:1.25rem;margin-bottom:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:rgba(255,255,255,0.02);padding:18px;border-radius:10px}
+.site-footer{border-top:1px solid rgba(255,255,255,0.04);padding:18px 0;margin-top:28px}
+@media (max-width:800px){.hero-inner{flex-direction:column-reverse}.hero-aside{width:100%}}
