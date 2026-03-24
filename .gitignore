@@ -1,0 +1,15 @@
+# Node / editor
+node_modules/
+.env
+.DS_Store
+Thumbs.db
+.vscode/
+*.log
+
+# OS
+ehthumbs.db
+Desktop.ini
+
+# Build
+dist/
+build/
