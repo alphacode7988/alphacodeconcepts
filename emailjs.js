@@ -14,11 +14,11 @@
   }
 
   const CDNS = [
+    // Prefer local copy when hosted on GitHub Pages (reliable under your domain)
+    '/vendor/email.min.js',
     'https://cdn.emailjs.com/sdk/3.2.0/email.min.js',
     'https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js',
-    'https://unpkg.com/emailjs-com@3.2.0/dist/email.min.js',
-    // Local fallback: drop the official email.min.js into ./vendor/email.min.js
-    '/vendor/email.min.js'
+    'https://unpkg.com/emailjs-com@3.2.0/dist/email.min.js'
   ];
 
   // If EmailJS already present, initialize now
