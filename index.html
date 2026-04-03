@@ -48,6 +48,53 @@
       </div>
     </div>
 
+    <section id="idea" class="section">
+      <h2>Bring your idea to life</h2>
+      <div class="card">
+        <form id="idea-form" class="idea-form">
+          <div class="form-row">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Doe" required>
+          </div>
+
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+
+          <div class="form-row">
+            <label for="type">Project type</label>
+            <select id="type" name="type">
+              <option value="website">Website</option>
+              <option value="web-app">Web app</option>
+              <option value="mobile-app">Mobile app</option>
+              <option value="desktop-app">Desktop app</option>
+              <option value="python-software">Python software</option>
+              <option value="bot">AI automation bot</option>
+              <option value="api">API integration</option>
+              <option value="automation">Automation script</option>
+              <option value="data-pipeline">Data pipeline</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="description">Describe the idea</label>
+            <textarea id="description" name="description" rows="6" placeholder="Describe what you want to build and any goals or constraints" required></textarea>
+          </div>
+
+          <div class="form-row form-actions">
+            <button type="submit" class="btn">Submit idea</button>
+            <a href="submissions.html" class="btn btn-outline" id="view-submissions">View submissions</a>
+          </div>
+
+          <div id="idea-success" class="success-message" aria-live="polite" hidden>
+            Thanks — your idea was saved. We'll get back to you soon.
+          </div>
+        </form>
+      </div>
+    </section>
+
     <section id="about" class="section">
       <h2>About</h2>
       <p>I am a software developer focused on solving real-world problems through technology. My work spans automation, fintech solutions, and scalable application architecture.</p>
@@ -86,6 +133,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">© 2026 Alpha Code Concepts</div>
   </footer>
-
 </body>
+  <script src="emailjs.js"></script>
+  <script src="scripts.js"></script>
 </html>

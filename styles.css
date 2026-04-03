@@ -33,3 +33,16 @@ body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial
 .card{background:var(--card);padding:18px;border-radius:10px}
 .site-footer{border-top:1px solid rgba(31,41,55,0.06);padding:18px 0;margin-top:28px}
 @media (max-width:800px){.hero-inner{flex-direction:column-reverse}.hero-aside{width:100%}}
+
+/* Idea submission form styles */
+.idea-form{display:block;gap:12px;}
+.idea-form .form-row{display:flex;flex-direction:column;margin-bottom:12px}
+.idea-form label{font-weight:600;margin-bottom:6px}
+.idea-form input[type="text"],.idea-form input[type="email"],.idea-form select,.idea-form textarea{padding:10px 12px;border:1px solid rgba(31,41,55,0.08);border-radius:8px;background:var(--surface);color:var(--text);font-size:0.95rem}
+.idea-form textarea{resize:vertical}
+.idea-form .form-actions{display:flex;gap:12px;align-items:center}
+.success-message{margin-top:12px;padding:10px 12px;background:rgba(124,58,237,0.08);border-radius:8px;color:var(--accent)}
+.idea-form .btn-outline{border:1px solid rgba(31,41,55,0.06);background:transparent;color:var(--text)}
+
+.submissions-list{display:flex;flex-direction:column;gap:12px}
+.submission-item{background:var(--card);padding:12px;border-radius:8px;border:1px solid rgba(31,41,55,0.04)}
