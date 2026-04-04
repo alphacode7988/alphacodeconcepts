@@ -71,13 +71,32 @@
     };
 
     // If EmailJS is available, try sending owner notification and auto-reply
-    if(window.emailjs && typeof emailjs.send === 'function'){
-      try{
-        // Disable submit button while sending
+    if (window.emailjs && typeof emailjs.sendForm === 'function') {
+      try {
         const submitBtn = form.querySelector('button[type="submit"]');
-        if(submitBtn) submitBtn.disabled = true;
+        if (submitBtn) submitBtn.disabled = true;
 
-        // Send owner notification and auto-reply in parallel
+        // 1) Owner: send the full form so the owner receives the submitted content
+        await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_OWNER, form);
+
+        // 2) Auto-reply: send to the visitor's email address (reply template must use {{to_email}})
+        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_REPLY, replyParams);
+
+        showSuccess('Thanks — your idea was sent.');
+        form.reset();
+      } catch (err) {
+        console.warn('EmailJS send failed', err);
+        showSuccess('Saved locally — email sending failed.');
+      } finally {
+        const submitBtn = form.querySelector('button[type="submit"]');
+        if (submitBtn) submitBtn.disabled = false;
+      }
+    } else if (window.emailjs && typeof emailjs.send === 'function') {
+      // Fallback for older SDKs or if sendForm isn't available: keep previous behavior
+      try {
+        const submitBtn = form.querySelector('button[type="submit"]');
+        if (submitBtn) submitBtn.disabled = true;
+
         await Promise.all([
           emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_OWNER, ownerParams),
           emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_REPLY, replyParams)
@@ -85,14 +104,14 @@
 
         showSuccess('Thanks — your idea was sent.');
         form.reset();
-      }catch(err){
+      } catch (err) {
         console.warn('EmailJS send failed', err);
         showSuccess('Saved locally — email sending failed.');
-      }finally{
+      } finally {
         const submitBtn = form.querySelector('button[type="submit"]');
-        if(submitBtn) submitBtn.disabled = false;
+        if (submitBtn) submitBtn.disabled = false;
       }
-    }else{
+    } else {
       // EmailJS not configured - inform user it's saved locally
       showSuccess('Saved locally. Email sending not configured.');
       form.reset();
